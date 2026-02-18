@@ -3,7 +3,10 @@
 $host = getenv('DB_HOST') ?: "localhost";
 $user = getenv('DB_USER') ?: "root";
 $pass = getenv('DB_PASS') ?: "";
-$db   = getenv('DB_NAME') ?: "sistema_afiliacion";
+$db   = getenv('DB_NAME');
+var_dump($db);
+exit;
+
 $port = getenv('DB_PORT') ?: 3306;
 
 $conexion = new mysqli($host, $user, $pass, $db, $port);
