@@ -77,7 +77,8 @@ if (!move_uploaded_file($foto['tmp_name'], $rutaFoto)) {
 }
 
 // 🔲 Generar QR
-$urlVerificacion = "http://192.168.80.46/SistemaAfiliacion/verificacion/?token=" . $token;
+$urlVerificacion = "https://sistemaafiliacion-production.up.railway.app/verificacion/?token=" . $token;
+
 $rutaQR = "../qrs/qr_" . $token . ".png";
 
 QRcode::png($urlVerificacion, $rutaQR, QR_ECLEVEL_L, 6);
