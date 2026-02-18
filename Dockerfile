@@ -1,14 +1,9 @@
-FROM php:8.2-cli
+FROM php:8.2-apache
 
-RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    unzip \
-    && docker-php-ext-install mysqli
+RUN docker-php-ext-install mysqli
 
-WORKDIR /app
+RUN a2enmod rewrite
 
-COPY . .
+COPY . /var/www/html/
 
-EXPOSE 8080
-
-CMD php -S 0.0.0.0:8080 -t .
+EXPOSE 80
