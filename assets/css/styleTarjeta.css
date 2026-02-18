@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+.logo-club {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+    margin-bottom: 12px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #dfe7f1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Card principal */
+.card {
+    background: #ffffff;
+    width: 340px;
+    padding: 28px 22px 24px;
+    text-align: center;
+
+    /* 🔥 ESQUINAS OPUESTAS */
+    border-radius: 40px 12px 40px 12px;
+    /* TL    TR    BR    BL */
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.15),
+        0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Marca superior */
+.card h1 {
+    margin: 0 0 18px;
+    font-size: 22px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: #1f2a44;
+}
+
+/* Foto afiliado */
+.card img:not(.logo-club) {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffffff;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    margin-bottom: 14px;
+}
+
+/* Nombre */
+.card h2 {
+    margin: 6px 0 4px;
+    font-size: 20px;
+    color: #111827;
+}
+
+/* Dependencia */
+.card p {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Estado */
+.estado {
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.6px;
+}
+
+/* Activo */
+.activo {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+}
+
+/* Inactivo */
+.inactivo {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 360px) {
+    .card {
+        width: 92%;
+    }
+}

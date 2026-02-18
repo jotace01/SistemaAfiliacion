@@ -1,0 +1,20 @@
+# Variables de entorno
+.env
+
+# Configuración local
+.vscode/
+.idea/
+
+# Logs
+*-errors.txt
+*.log
+
+# Backups de base de datos
+*.sql
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias futuras
+vendor/

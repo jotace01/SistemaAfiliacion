@@ -1,0 +1,23 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+    ],
+    "rules": {
+      // Here you can define your own custom rules or override existing ones
+      "no-undef":"error"
+      // "no-dupe-key":"false"
+    }
+  }

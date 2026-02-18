@@ -1,0 +1,53 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(rgba(5, 10, 20, 0.9), rgba(5, 10, 20, 0.9));
+  color: #fff;
+}
+
+/* 🔹 CENTRADO DEL H2 DEL DASHBOARD */
+.container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Card de login */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 25px rgba(0, 123, 255, 0.25),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Inputs */
+.form-control {
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.6);
+  color: #fff;
+}
+
+/* Botón */
+.btn-primary {
+  background: linear-gradient(135deg, #0d6efd, #0a58ca);
+  border: none;
+  box-shadow: 0 0 12px rgba(13, 110, 253, 0.6);
+}
