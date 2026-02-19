@@ -43,18 +43,14 @@ if ($checkStmt->num_rows > 0) {
 $token = bin2hex(random_bytes(16));
 
 // 📷 Foto
-if (!isset($_FILES['foto'])) {
-    header("Location: index.php?error=subida");
-    exit;
-}
-
 $foto = $_FILES['foto'];
 
 $permitidos = ['image/jpeg', 'image/png'];
 $maxSize = 3 * 1024 * 1024; // 3MB
 
 if ($foto['error'] !== 0) {
-    die("Error en subida. Código: " . $foto['error']);
+    header("Location: index.php?error=subida");
+    exit;
 }
 
 if ($foto['size'] > $maxSize) {
@@ -73,39 +69,17 @@ if (!in_array($mime, $permitidos)) {
 // Generar nombre seguro basado en token
 $extension = ($mime === 'image/png') ? 'png' : 'jpg';
 $nombreFoto = $token . '.' . $extension;
+$rutaFoto = '../uploads/' . $nombreFoto;
 
-// 📁 Ruta absoluta segura
-$directorio = __DIR__ . '/../uploads/';
-
-// Crear carpeta si no existe
-if (!is_dir($directorio)) {
-    if (!mkdir($directorio, 0755, true)) {
-        die("No se pudo crear la carpeta uploads.");
-    }
-}
-
-// Verificar permisos de escritura
-if (!is_writable($directorio)) {
-    die("La carpeta uploads no tiene permisos de escritura.");
-}
-
-$rutaFoto = $directorio . $nombreFoto;
-
-// Mover archivo
 if (!move_uploaded_file($foto['tmp_name'], $rutaFoto)) {
-    die("Error real al mover el archivo. Ruta destino: " . $rutaFoto);
+    header("Location: index.php?error=subida");
+    exit;
 }
 
 // 🔲 Generar QR
 $urlVerificacion = "https://sistemaafiliacion-production.up.railway.app/verificacion/?token=" . $token;
 
-$rutaQR = __DIR__ . "/../qrs/qr_" . $token . ".png";
-
-// Crear carpeta QR si no existe
-$qrsDir = __DIR__ . '/../qrs/';
-if (!is_dir($qrsDir)) {
-    mkdir($qrsDir, 0755, true);
-}
+$rutaQR = "../qrs/qr_" . $token . ".png";
 
 QRcode::png($urlVerificacion, $rutaQR, QR_ECLEVEL_L, 6);
 
@@ -150,5 +124,6 @@ if ($stmt->execute()) {
     header("Location: exito.php?token=$token");
     exit;
 } else {
-    die("Error al insertar en base de datos: " . $stmt->error);
+    header("Location: index.php?error=subida");
+    exit;
 }
