@@ -9,9 +9,6 @@ WORKDIR /app
 
 COPY . .
 
-# Dar permisos de escritura
-RUN chmod -R 777 /app/uploads
-
 EXPOSE 8080
 
 CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-8080} -t ."]
