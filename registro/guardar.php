@@ -1,8 +1,4 @@
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require '../includes/conexion.php';
 require_once '../libs/phpqrcode/qrlib.php';
 
@@ -81,8 +77,7 @@ if (!move_uploaded_file($foto['tmp_name'], $rutaFoto)) {
 }
 
 // 🔲 Generar QR
-$urlVerificacion = "https://sistemaafiliacion-production.up.railway.app/verificacion/?token=" . $token;
-
+$urlVerificacion = "http://192.168.80.46/SistemaAfiliacion/verificacion/?token=" . $token;
 $rutaQR = "../qrs/qr_" . $token . ".png";
 
 QRcode::png($urlVerificacion, $rutaQR, QR_ECLEVEL_L, 6);
